@@ -1,4 +1,4 @@
-var SerialPort = require('serialport').SerialPort;
+var SerialPort = require('serialport');
 var Parsers = require('serialport').parsers;
 var Pdu = require('./pdu');
 var EventEmitter = require('events').EventEmitter;
@@ -141,6 +141,7 @@ Modem.prototype.connect = function (cb) {
   "use strict";
   var i = 0;
   for (i; i < this.ports.length; ++i) {
+    console.log(this.ports[i])
     this.connectPort(this.ports[i], cb);
   }
 };
@@ -149,7 +150,7 @@ Modem.prototype.connect = function (cb) {
  */
 Modem.prototype.connectPort = function (port, cb) {
   var serialPort = new SerialPort(port, {
-    baudrate: 115200
+    baudRate: 115200
   });
 
   var commandTimeout = null;

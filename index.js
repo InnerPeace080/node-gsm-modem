@@ -140,7 +140,7 @@ Modem.prototype.resetVars = function () {
 Modem.prototype.connect = function (cb) {
   "use strict";
   var i = 0;
-  for (i; i < this.ports.length; ++i) {    
+  for (i; i < this.ports.length; ++i) {
     this.connectPort(this.ports[i], cb);
   }
 };
